@@ -3,5 +3,10 @@ from .models import News
 
 
 def home(request):
-    notices = {'news': News.objects.all()}
-    return render(request, 'home.html', notices)
+    return render(request, "home.html", {"news": News.objects.all()})
+
+
+def news_details(request, id):
+    return render(
+        request, "news_details.html", {"new_details": News.objects.get(id=id)}
+    )

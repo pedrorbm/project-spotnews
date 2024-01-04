@@ -21,8 +21,12 @@
     {% for notice in news %}
         <article class="news-card">
             <img src="{% static notice.image.url %}" alt="{{ notice.title }}">
-            <h2 class="news-title">{{ notice.title }}</h2>
-            <span class="news-date">{{ notice.created_at | date:"d/m/Y" }}</span>
+            <h2 class="news-title">
+              {{ notice.title }}
+            </h2>
+            <span class="news-date">
+              {{ notice.created_at | date:"d/m/Y" }}
+            </span>
         </article>
     {% endfor %}
   </main>
