@@ -1,10 +1,11 @@
 from django.urls import path
-from . import views
+from .views import home, news_details, categories_form, news_form
 
 urls = [
-    path("", views.home, name="home-page"),
-    path("news/<int:id>/", views.news_details, name="news-details-page"),
-    path("categories/", views.categories_form, name="categories-form"),
+    path("", home, name="home-page"),
+    path("news/<int:id>/", news_details, name="news-details-page"),
+    path("categories/", categories_form, name="categories-form"),
+    path("news/", news_form, name="news-form"),
 ]
 
 urlpatterns = urls

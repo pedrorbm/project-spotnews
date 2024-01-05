@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário para Nova Notícia</title>
+</head>
+<body>
+  <header class="header">
+    <ul class="header-links">
+      <li>
+        <ul>
+          <a href="{% url 'home-page' %}">Home</a>
+        </ul>
+        <ul>
+          <a href="{% url 'categories-form'}">Cadastrar Categorias</a>
+        </ul>
+        <ul>
+          <a href="{% url 'news-form'}">Cadastrar Notícias</a>
+        </ul>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <form 
+      class="news-form"
+      method="post"
+      action="{% url 'news-form' %}"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Salvar</button>
+    </form>
+    <p>Fím do formulário news</p>
+  </main>
+</body>
+</html>
