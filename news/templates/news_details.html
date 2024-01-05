@@ -8,31 +8,33 @@
     <title>Página de Detalhes da Notícia</title>
 </head>
 <body>
-    <header class="header">
-        <ul class="header-links">
-            <li><a href="{% url 'home-page' %}">Home</a></li>
-        </ul>
-    </header>
+  <header class="header">
+    <ul class="header-links">
+      <li>
+        <a href="{% url 'home-page' %}">Home</a>
+      </li>
+    </ul>
+  </header>
 
-    <main>
-        <h1 class="news-title">
-          {{ new_details.title }}
-        </h1>
-        <p class="news-content">
-          {{ new_details.content }}
-        </p>
-        <span class="news-categories">
-            {% for type in new_details.categories.all %}
-                {{ type.name }}
-            {% endfor %}
-        </span>
-        <span class="news-author">
-          {{ new_details.author.name }}
-        </span>
-        <img src="{% static new_details.image.url %}" alt="{{ new_details.title }}">
-        <span class="news-date">
-          {{ new_details.created_at | date:"d/m/Y" }}
-        </span>
-    </main>
+  <main>
+    <h1 class="news-title">
+      {{ new_details.title }}
+    </h1>
+    <p class="news-content">
+      {{ new_details.content }}
+    </p>
+    <span class="news-categories">
+        {% for type in new_details.categories.all %}
+            {{ type.name }}
+        {% endfor %}
+    </span>
+    <span class="news-author">
+        {{ new_details.author.name }}
+    </span>
+    <img src="{% static new_details.image.url %}" alt="{{ new_details.title }}">
+    <span class="news-date">
+        {{ new_details.created_at | date:"d/m/Y" }}
+    </span>
+  </main>
 </body>
 </html>
